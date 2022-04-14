@@ -1,0 +1,37 @@
+<!DOCTYPE html SYSTEM "http://www.thymeleaf.org/dtd/xhtml1-strict-thymeleaf-spring4-4.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml"
+	xmlns:th="http://www.thymeleaf.org">
+
+<header th:replace="~{cabecalho :: head('Listar produtos')}"></header>
+<body>
+<nav th:replace="~{menu :: nav}"></nav>
+	<div class="container mt-3">
+		<a type="button" class="btn btn-primary" href='/produtos/criar'>Criar</a>
+		<h3>Cadastro de produtos</h3>
+		<table id="tbProduto" class="table table-bordered table-sm">
+			<thead>
+				<tr>
+					<th>Nome</th>
+					<th>Quantidade</th>
+					<th>Valor</th>
+					<th>Edição</th>
+				</tr>
+			</thead>
+			<tbody>
+				<tr th:each="produto : ${listarProdutos}">
+					<td th:text="${produto.getNome()}">produto</td>
+					<td th:text="${produto.getQuantidade()}">quantidade</td>
+					<td th:text="${produto.getValor()}">Valor</td>
+					<td>
+	 <a th:href="@{/produtos/{produtoId}(produtoId = ${produto.id})}" class="btn btn-info"> Detalhe</a>
+					<a href="#" class="btn btn-warning"> Editar</a> <a
+						href="#" class="btn btn-danger"> Deletar</a>
+						</td>
+				</tr>
+			</tbody>
+		</table>
+	</div>
+</body>
+</html>
+
+

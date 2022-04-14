@@ -1,0 +1,42 @@
+<!DOCTYPE html>
+<html>
+
+<header th:replace="~{cabecalho :: head('Detalhe do Cliente')}"></header>
+<body>
+	<nav th:replace="~{menu :: nav}"></nav>
+	<div class="container">
+		<h3 class="text-center">Detalhe do cliente</h3>
+		<form action="/clientes" method="POST">
+			<div class="row">
+				<div class="col-md-6">
+					<div class="input-group mb-3 input-group-sm">
+						<span class="input-group-text">Nome</span> <input type="text"
+							th:placeholder="${cliente.nome}" readonly class="form-control">
+					</div>
+				</div>
+				<div class="col-md-6">
+					<div class="input-group mb-3 input-group-sm">
+						<span class="input-group-text">Documento</span> <input
+							type="text" th:placeholder="${cliente.documento}" readonly
+							class="form-control">
+					</div>
+				</div>
+			</div>
+			<div class="row">
+				<div class="col-md-6">
+					<div class="input-group mb-3 input-group-sm">
+						<span class="input-group-text">Endereco</span> <input type="text"
+							readonly th:placeholder="${cliente.endereco}" class="form-control">
+					</div>
+				</div>
+			</div>
+		</form>
+		<div class="row">
+			<div class="col-md-12">
+				<a href="/clientes" class="btn btn-info">Voltar</a>
+			</div>
+
+		</div>
+	</div>
+</body>
+</html>
